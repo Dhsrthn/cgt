@@ -8,7 +8,7 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         body {
-            font-family: "Roboto", sans-serif;
+            /* font-family: "Roboto", sans-serif; */
             overflow: hidden;
             background-color: #f1fef1;
             font-family: 'Poppins';
@@ -53,6 +53,7 @@
             left: 50%;
             transform: translateX(-50%);
             top: 10%;
+            overflow: visible;
         }
 
         h1 {
@@ -60,48 +61,73 @@
         }
 
         @media only screen and (orientation: portrait) {
+            body{
+                font-size: 2.5rem;
+                height: 100vmax;
+                position: relative;
+            }
+            
+            .graphBox{
+                position: fixed;
+                left: 80%;
+                top: 30%;
+                overflow: visible;
+            }
+
             #text1 {
                 position: absolute;
-                top: 60vmax;
+                top: 65vmax;
                 width: max-content;
                 left: 50%;
                 transform: translateX(-50%);
+                font-size: 3rem;
             }
 
             input {
                 position: absolute;
-                top: 65vmax;
-                height: 20px;
+                top: 71vmax;
+                height: 7vmin;
+                width: 50%;
                 left: 50%;
                 transform: translateX(-50%);
+                font-size: 2.5rem;
             }
 
             button {
                 position: absolute;
-                top: 70vmax;
+                top: 76vmax;
                 width: 90%;
-                height: 30px;
+                height: 7vmin;
                 left: 50%;
                 transform: translateX(-50%);
+                font-size: 2.8rem;
             }
 
             #text2 {
                 position: absolute;
-                top: 75vmax;
+                top: 79vmax;
                 left: 50%;
                 transform: translateX(-50%);
             }
 
             #text3 {
                 position: absolute;
-                top: 80vmax;
+                top: 82vmax;
                 left: 50%;
                 transform: translateX(-50%);
                 width: max-content;
 
             }
-        }
 
+            .link-label{
+                font-size: 1.8rem;
+            }
+
+            .node-text{
+                font-size: 3rem;
+            }
+        
+        }
         @media only screen and (orientation: landscape) {
             .graphBox {
                 position: absolute;
@@ -285,7 +311,7 @@
                             return d.id;
                         })
                         .distance(function (d) {
-                            return (d.weight * height) / 40;
+                            return (d.weight * height) / 30;
                         })
                 )
                 .force("charge", d3.forceManyBody().strength(-50))
